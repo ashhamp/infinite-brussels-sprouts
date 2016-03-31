@@ -12,12 +12,11 @@ $('.more-sprouts').on('click', function(event) {
     }).done(function(tweets) {
 
       tweets.forEach(function(tweet) {
-        var body = tweet["text"]
-        var username = tweet["username"]
-        $(".tweets").append("<li class='tweet'>" +
-          "<div class='body'>" + body + "</div>" +
-          "<div class='user'>" + username + "</div>" +
-        "</li>");
+        var lineBegin = "<li class='tweet'>";
+        var lineEnd = "</li>";
+        var body = "<div class='body'>" + tweet["text"] + "</div>";
+        var username = "<div class='user'>" + tweet["username"] + "</div>";
+        $(".tweets").append(lineBegin + body + username + lineEnd);
       });
     });
   });
